@@ -19,10 +19,10 @@ if [[ -z "$2" ]]
     exit 1
 fi
 
-if [ -f "$file" ]
+if [ -f "$1" ]
 then
     echo "encoding, please waiting. --------------------------------------"
-    ffmpeg -i $1 -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p -loglevel panic -s 640x360 $2
+    ffmpeg -i "$1" -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p -loglevel panic -s 640x360 "$2"
     echo "FINISH - File: $2 is ready! Thank you. -------------------------"
 else
     echo "ERROR - File not found! ----------------------------------------"
